@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>AI와 데이터로 일하는 공공 실무자를 위한 블로그를 시작하며 · 빛의여행</title>
 <meta name="description" content="공공 분야에서 AI와 데이터를 활용한 혁신적 사례와 실무 적용법을 소개하는 블로그입니다."/>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
@@ -13,7 +14,8 @@
 <header class="hdr"><div class="hdr-in">
   <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
   <nav class="nav">
-    <a href="index.html" class="navon">전체</a><a href="cat-news.html">뉴스</a><a href="cat-ai.html">인공지능</a><a href="cat-data.html">데이터분석</a><a href="cat-security.html">보안</a><a href="cat-gis.html">GIS</a>
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
   </nav>
 </div></header>
 <div class="wrap">
@@ -48,11 +50,12 @@
 <p>이 블로그는 일방적인 정보 전달을 넘어서, 함께 아이디어를 교환하고 발전시키는 공간이 되기를 바랍니다. 댓글이나 질문, 또는 주제 제안 등을 통하여 적극적으로 참여해주신다면 더욱 풍성한 논의의 장이 될 것입니다. </p>
 <p>여러분과 함께 공공 부문에서의 AI와 데이터 활용이 더 나은 사회를 만드는 길잡이가 될 수 있기를 기대합니다. 감사합니다.</p></div>
     <div class="labels"><span>#인공지능</span><span>#AI 공공 혁신</span><span>#데이터 정책</span><span>#공공 부문 기술</span></div>
-    <a class="backhome" href="index.html">← 전체 글 보기</a>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>
 <footer class="ft"><div class="ft-in">
   <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
-  <div class="copy">© 빛의여행 — 기술과 데이터로 공공의 일상을 잇는 기록.</div>
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span></div>
 </div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
 </body></html>
