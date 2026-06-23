@@ -100,3 +100,8 @@ html:not(.lang-en) .en{display:none;}
 .ftlinks a:hover{color:var(--accent);}
 .ft .copy{width:100%;font-size:.8rem;color:#7E8493;border-top:1px solid #2A2E38;padding-top:1.2rem;margin-top:.4rem;}
 .no-posts{text-align:center;color:var(--muted);padding:4rem 0;}
+.pager{display:flex;justify-content:center;align-items:center;gap:1rem;margin-top:2.8rem;}
+.pager a{border:1px solid var(--border);background:var(--surface);border-radius:999px;
+  padding:.6rem 1.3rem;font-size:.9rem;font-weight:600;color:var(--text);transition:.15s;}
+.pager a:hover{border-color:var(--accent);color:var(--accent);}
+.pageinfo{font-size:.85rem;color:var(--muted);}
