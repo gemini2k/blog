@@ -94,5 +94,9 @@ html:not(.lang-en) .en{display:none;}
 .ft{background:var(--ink);color:#C7CBD4;margin-top:2rem;}
 .ft-in{max-width:var(--maxw);margin:0 auto;padding:2.6rem 1.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
 .ft .wordmark{color:#fff;}
+.ftlinks{margin-left:auto;display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;font-size:.9rem;color:#C7CBD4;}
+.ftlinks .ftlabel{color:#7E8493;font-size:.8rem;font-weight:600;}
+.ftlinks a{color:#C7CBD4;}
+.ftlinks a:hover{color:var(--accent);}
 .ft .copy{width:100%;font-size:.8rem;color:#7E8493;border-top:1px solid #2A2E38;padding-top:1.2rem;margin-top:.4rem;}
 .no-posts{text-align:center;color:var(--muted);padding:4rem 0;}
