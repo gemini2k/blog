@@ -18,6 +18,10 @@ img{max-width:100%;display:block;}
 .nav{display:flex;gap:1.1rem;margin-left:auto;align-items:center;flex-wrap:wrap;
   font-size:.92rem;font-weight:500;color:var(--muted);justify-content:flex-end;}
 .nav a:hover{color:var(--text);}
+.nav a.navon{color:var(--accent);font-weight:700;}
+.cat-head{padding:2.6rem 1.5rem 0;max-width:var(--maxw);margin:0 auto;}
+.cat-head .eyebrow{position:static;}
+.cat-head h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin:.4rem 0 0;}
 .hero{position:relative;overflow:hidden;text-align:center;padding:5rem 1.5rem 3.5rem;}
 .hero::before{content:"";position:absolute;inset:-40% 0 auto 0;height:460px;
   background:radial-gradient(60% 70% at 50% 0%,rgba(224,136,58,.20),rgba(224,136,58,.05) 45%,transparent 70%);pointer-events:none;}
