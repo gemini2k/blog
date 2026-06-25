@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>지도 위에서 보이는 것 — 공간정보가 행정에서 하는 일 · 빛의여행</title>
+<meta name="description" content="표로 보면 숫자였던 것이 지도 위에 올리면 다르게 보인다. 주소를 좌표로 바꾸는 일, 좌표계라는 복병, 거리·겹침 연산이 만드는 답 — 공간정보를 행정에서 다루며 배운 것."/>
+<link rel="canonical" href="https://gemini2k.kr/gis-in-administration.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="지도 위에서 보이는 것 — 공간정보가 행정에서 하는 일"/>
+<meta property="og:description" content="표로 보면 숫자였던 것이 지도 위에 올리면 다르게 보인다. 주소를 좌표로 바꾸는 일, 좌표계라는 복병, 거리·겹침 연산이 만드는 답 — 공간정보를 행정에서 다루며 배운 것."/>
+<meta property="og:url" content="https://gemini2k.kr/gis-in-administration.html"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="지도 위에서 보이는 것 — 공간정보가 행정에서 하는 일"/>
+<meta name="twitter:description" content="표로 보면 숫자였던 것이 지도 위에 올리면 다르게 보인다. 주소를 좌표로 바꾸는 일, 좌표계라는 복병, 거리·겹침 연산이 만드는 답 — 공간정보를 행정에서 다루며 배운 것."/>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">지도 위에서 보이는 것 — 공간정보가 행정에서 하는 일</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 6월 25일</span></div>
+    
+    <div class="post-body"><p>표로 보면 그냥 숫자였던 것이 지도 위에 올리는 순간 다르게 보일 때가 있다. 민원이 어느 동에서 몰리는지, 시설이 비어 있는 지역이 어디인지는 목록을 아무리 들여다봐도 잘 안 잡힌다. 위치를 좌표로 바꿔 점으로 찍어 보면 한눈에 들어온다. GIS, 공간정보를 다루는 일은 결국 "어디"라는 질문에 답하는 도구다.</p>
+
+<h2>주소를 좌표로 바꾸는 데서 시작한다</h2>
+<p>대부분의 행정 데이터에는 주소가 있다. 그런데 주소는 그대로 지도에 찍히지 않는다. "서울특별시 강남구 테헤란로 1"을 위도·경도 같은 좌표로 바꾸는 과정이 필요하고, 이걸 지오코딩이라 부른다. 여기서 첫 번째 함정을 만난다. 도로명주소와 지번주소가 섞여 있거나, 옛 지명이 남아 있거나, 오타가 있으면 변환이 실패한다. 변환이 안 된 비율을 먼저 확인하지 않으면, 지도에는 멀쩡히 점이 찍혀도 실제로는 절반만 그려진 그림을 보고 판단하게 된다.</p>
+
+<h2>좌표계라는 복병</h2>
+<p>같은 위치라도 어떤 좌표계로 표현하느냐에 따라 숫자가 전혀 다르다. 위경도(EPSG:4326)로 받은 데이터와 우리나라 평면좌표(중부원점 계열)로 만든 데이터를 그대로 한 지도에 겹치면, 점들이 엉뚱한 바다 한가운데 모이는 식으로 어긋난다. 처음 GIS를 다룰 때 가장 많이 막혔던 지점이 이것이었다. 데이터를 받으면 어떤 좌표계인지부터 확인하고, 필요하면 변환해 같은 기준으로 맞추는 일이 먼저다.</p>
+
+<h2>거리와 면적, 겹침이 답을 만든다</h2>
+<p>공간정보가 표와 다른 점은 위치들 사이의 관계를 계산할 수 있다는 데 있다. 어떤 지점에서 반경 몇 미터 안에 무엇이 있는지(버퍼), 두 영역이 겹치는 부분이 어디인지(중첩), 가장 가까운 시설이 어디인지 같은 질문에 수치로 답한다. 예를 들어 새 시설을 어디에 둘지 검토할 때, 기존 시설에서 일정 거리 밖이면서 수요가 많은 지역을 지도 연산으로 추려 낼 수 있다. 목록과 감으로 고르던 일을 근거 있는 후보로 바꿔 준다.</p>
+<p>다만 지도는 설득력이 강한 만큼 오해도 키운다. 색을 어떻게 나누느냐에 따라 같은 데이터가 심각해 보이기도, 별것 아니어 보이기도 한다. 인구가 많은 지역은 무엇을 그려도 점이 몰리기 마련이라, 단순한 건수보다 인구나 면적으로 나눈 비율을 함께 봐야 엉뚱한 결론을 피할 수 있었다. 지도는 답을 보여 주는 도구이면서, 동시에 보고 싶은 답을 보여 주기도 한다는 걸 잊지 않으려 한다.</p></div>
+    <div class="labels"><span>#GIS</span><span>#공간정보</span><span>#데이터</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
