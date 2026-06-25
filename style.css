@@ -61,22 +61,27 @@ html:not(.lang-en) .en{display:none;}
 .thumb img{width:100%;height:100%;object-fit:cover;}
 /* 이미지 없는 글 = 텍스트 커버 (카테고리 색상 + 카테고리 eyebrow + 제목) */
 .tcover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;
-  gap:.5rem;padding:.95rem 1.05rem;background:linear-gradient(135deg,#2B2F3A,#454B5C);overflow:hidden;}
-.tcover::after{content:"";position:absolute;right:-25%;top:-45%;width:70%;height:120%;
-  background:radial-gradient(closest-side,rgba(255,255,255,.15),transparent);pointer-events:none;}
-.tcover .tc-eyebrow{display:inline-flex;align-items:center;gap:.3rem;align-self:flex-start;font-size:.72rem;
-  font-weight:700;letter-spacing:.04em;color:#fff;background:rgba(255,255,255,.16);
-  padding:.22rem .6rem;border-radius:999px;backdrop-filter:blur(2px);z-index:1;}
-.tcover .tc-title{font-size:1.05rem;font-weight:800;line-height:1.34;color:#fff;margin:0;z-index:1;
-  letter-spacing:-.01em;text-shadow:0 1px 4px rgba(0,0,0,.32);
+  gap:.5rem;padding:.9rem 1rem;background:linear-gradient(140deg,#2B2F3A,#454B5C);overflow:hidden;}
+/* 우상단 은은한 광택 */
+.tcover::after{content:"";position:absolute;right:-20%;top:-46%;width:62%;height:115%;
+  background:radial-gradient(closest-side,rgba(255,255,255,.12),transparent);pointer-events:none;z-index:0;}
+/* 하단 어둠 스크림 — 카테고리 색 무관 제목 가독성 보장 */
+.tcover::before{content:"";position:absolute;left:0;right:0;bottom:0;height:64%;
+  background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,.12) 55%,transparent);pointer-events:none;z-index:0;}
+.tcover .tc-eyebrow{display:inline-flex;align-items:center;gap:.32rem;align-self:flex-start;font-size:.71rem;
+  font-weight:700;letter-spacing:.02em;color:#fff;background:rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.22);padding:.2rem .6rem;border-radius:999px;
+  backdrop-filter:blur(3px);box-shadow:0 1px 3px rgba(0,0,0,.16);z-index:1;}
+.tcover .tc-title{font-size:1.06rem;font-weight:800;line-height:1.32;color:#fff;margin:0;z-index:1;
+  letter-spacing:-.01em;text-shadow:0 1px 5px rgba(0,0,0,.42);
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-/* 카테고리별 색상 (텍스트 커버 배경) */
-.tf-news{background:linear-gradient(135deg,#33415e,#566c92);}
-.tf-ai{background:linear-gradient(135deg,#553b86,#8a63cf);}
-.tf-data{background:linear-gradient(135deg,#1f6a58,#34a88a);}
-.tf-security{background:linear-gradient(135deg,#85323f,#c95f6e);}
-.tf-gis{background:linear-gradient(135deg,#266488,#3ba0cf);}
-.tf-generic{background:linear-gradient(135deg,#2B2F3A,#454B5C);}
+/* 카테고리별 색상 (텍스트 커버 배경) — 차분하게 깊은 톤 */
+.tf-news{background:linear-gradient(140deg,#2e3a56,#4a5c83);}
+.tf-ai{background:linear-gradient(140deg,#473573,#7457b3);}
+.tf-data{background:linear-gradient(140deg,#1b5d4f,#2e8d74);}
+.tf-security{background:linear-gradient(140deg,#7a313d,#b35260);}
+.tf-gis{background:linear-gradient(140deg,#235a7b,#3690bd);}
+.tf-generic{background:linear-gradient(140deg,#2B2F3A,#454B5C);}
 .cat{position:absolute;left:.8rem;top:.8rem;background:rgba(255,255,255,.92);color:var(--ink);
   font-size:.72rem;font-weight:700;padding:.26rem .6rem;border-radius:999px;}
 .card-body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;flex:1;}
