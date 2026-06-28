@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>좌표계와 투영, 5분 만에 이해하기 · 빛의여행</title>
+<meta name="description" content="좌표계와 투영은 GIS에서 지구 데이터를 화면에 정확히 표현하기 위한 핵심 요소입니다."/>
+<link rel="canonical" href="https://gemini2k.kr/understanding-coordinate-systems-and-projections.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="좌표계와 투영, 5분 만에 이해하기"/>
+<meta property="og:description" content="좌표계와 투영은 GIS에서 지구 데이터를 화면에 정확히 표현하기 위한 핵심 요소입니다."/>
+<meta property="og:url" content="https://gemini2k.kr/understanding-coordinate-systems-and-projections.html"/>
+<meta property="og:image" content="https://gemini2k.kr/assets/understanding-coordinate-systems-and-pro-b028ea9a35.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="좌표계와 투영, 5분 만에 이해하기"/>
+<meta name="twitter:description" content="좌표계와 투영은 GIS에서 지구 데이터를 화면에 정확히 표현하기 위한 핵심 요소입니다."/>
+<meta name="twitter:image" content="https://gemini2k.kr/assets/understanding-coordinate-systems-and-pro-b028ea9a35.webp"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">좌표계와 투영, 5분 만에 이해하기</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 6월 29일</span></div>
+    <img class="post-hero" src="assets/understanding-coordinate-systems-and-pro-b028ea9a35.webp" alt="좌표계와 투영, 5분 만에 이해하기"/>
+    <div class="post-body"><p>GIS(지리정보시스템)를 처음 접할 때 많은 사람들은 종종 지구의 지도 데이터를 컴퓨터 화면에 정확하게 표현하는 것의 어려움을 느낀다. 현실 세계는 구형에 가깝지만, 컴퓨터 화면은 평평한 2차원이다. 이 문제를 다루는 것이 바로 좌표계와 투영이다.</p>
+<h2>좌표계의 기본: 어디에서 시작할까?</h2>
+<p>좌표계는 지구 상의 위치를 수학적으로 표현하는 방식이다. 흔히 사용하는 좌표계로는 WGS 84가 있다. GPS는 바로 이 글로벌 좌표계를 기반으로 한다. 이 좌표계를 통해 지표면의 특정 위치를 위도와 경도로 나타낼 수 있다. 예를 들어 서울의 경도는 약 126.9780, 위도는 약 37.5665다. 여기서 주의할 점은 다양한 소수점 자리수로 인해 마이크로 단위의 오차가 생길 수 있다는 것이다. 따라서 매우 정밀한 데이터를 요구하는 프로젝트에서는 이 점을 반드시 고려해야 한다.</p>
+<h2>투영의 선택: 평면에서의 표현</h2>
+<p>투영은 구형의 지구를 평면에 표시하기 위한 수학적 변환이다. 지구의 표면을 평면으로 펼치는 여러 가지 방식이 있는데, 그 중 가장 널리 사용되는 것은 Mercator 투영이다. Mercator 투영은 특히 방향이 정확하게 유지된다는 장점이 있어 항해에 유리하다. 하지만 넓이 왜곡은 피할 수 없다. 예를 들어, 극지방은 실제보다 훨씬 크게 보이게 된다. 이 때문에 세계지도를 볼 때는 사용 목적에 맞는 투영 방식을 선택하는 것이 중요하다. 지역적 분석이 목표라면, Lambert Conformal Conic과 같은 다른 투영도 적합할 수 있다.</p>
+<h2>실무에서의 판단: 이론과 현실 사이</h2>
+<p>실무에서는 이론적 이해에 못지않게 주변 조건과 필요한 데이터를 잘 파악해야 한다. 내 경험에 따르면, 여러 데이터 출처가 혼재된 프로젝트의 경우에는 일관된 좌표계를 사용하는 것이 중요하다. 데이터가 서로 다른 좌표계를 사용할 경우, 불필요한 변환과 이로 인한 오차가 발생하기 때문이다. QGIS나 ArcGIS와 같은 도구를 활용하면 다양한 좌표계를 다룰 수 있어 유용하다. 하지만, 중복된 데이터 변환 과정은 프로젝트의 복잡성을 야기할 수 있으니, 처음부터 명확한 좌표계를 설정하는 것이 좋다.</p>
+<p>투영을 할 때 역시 목표에 맞는 선택이 중요하다. 목표로 하는 분석의 공간적 범위를 고려하여 적절한 투영을 선택하면, 지도 표현 뿐만 아니라 분석의 정확도를 높일 수 있다.</p>
+<p>한 가지 팁을 말하자면, GIS에서는 '적합한 도구'의 선택보다 중요한 것이 정확한 목표 설정과 데이터 이해다. 기술적 접근보다 기획 단계에서의 명확함이 훨씬 더 큰 효과를 낼 수 있다. 좌표계와 투영 선택에서도 마찬가지다. 초점은 항상 데이터의 본질을 잃지 않는 것에 맞춰져야 한다.</p></div>
+    <div class="labels"><span>#GIS</span><span>#지리정보시스템</span><span>#좌표계</span><span>#투영 방법</span><span>#맵핑 기술</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
