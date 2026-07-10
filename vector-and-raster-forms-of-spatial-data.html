@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>벡터와 래스터, 공간 데이터의 두 가지 형태 · 빛의여행</title>
+<meta name="description" content="벡터와 래스터는 공간 데이터를 저장하는 두 가지 방법으로 각기 다른 장단점을 지니고 있다."/>
+<link rel="canonical" href="https://gemini2k.kr/vector-and-raster-forms-of-spatial-data.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="벡터와 래스터, 공간 데이터의 두 가지 형태"/>
+<meta property="og:description" content="벡터와 래스터는 공간 데이터를 저장하는 두 가지 방법으로 각기 다른 장단점을 지니고 있다."/>
+<meta property="og:url" content="https://gemini2k.kr/vector-and-raster-forms-of-spatial-data.html"/>
+<meta property="og:image" content="https://gemini2k.kr/assets/vector-and-raster-forms-of-spatial-data-0d5612634d.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="벡터와 래스터, 공간 데이터의 두 가지 형태"/>
+<meta name="twitter:description" content="벡터와 래스터는 공간 데이터를 저장하는 두 가지 방법으로 각기 다른 장단점을 지니고 있다."/>
+<meta name="twitter:image" content="https://gemini2k.kr/assets/vector-and-raster-forms-of-spatial-data-0d5612634d.webp"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">벡터와 래스터, 공간 데이터의 두 가지 형태</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 7월 11일</span></div>
+    <img class="post-hero" src="assets/vector-and-raster-forms-of-spatial-data-0d5612634d.webp" alt="벡터와 래스터, 공간 데이터의 두 가지 형태"/>
+    <div class="post-body"><p>지하철 노선도를 떠올려보자. 선의 흐름과 역들이 위치한 것을 눈으로 확인할 수 있다. 이런 시각적 데이터는 벡터와 래스터, 두 가지 방법으로 컴퓨터에 표현된다. 노선도가 노선과 역이라는 위상 정보를 다룬다면, 구글의 위성 지도는 도시의 모습을 픽셀 단위로 담아낸다. 두 방식 모두 공간 데이터를 저장하고 전달하는 중요한 수단이다.</p>
+<h2>벡터 데이터의 유연함</h2>
+<p>벡터 데이터는 점, 선, 면으로 구성된다. 우선 가장 큰 장점은 확대해도 정보의 손실이 없이 깔끔하게 유지된다는 점이다. 예를 들어 도로망 데이터를 다룰 때, 벡터로 표현된 데이터는 각 도로의 정확한 경로와 연결성을 그대로 유지한다. 결과적으로, GIS 도구인 QGIS나 ArcGIS에서 복잡한 지형 분석을 수행할 때 유용하다. </p>
+<p>하지만, 벡터의 이런 유연함이 항상 절대적으로 좋다고만은 할 수 없다. 복잡한 지형을 벡터로 변환하는 데 상당한 시간이 필요하다. 맵핑 과정에서 오류가 발생할 수 있는 것도 문제다. 특히나 도심의 복잡한 교차로를 모델링할 때 이러한 오류는 예상보다 빈번히 발생할 수 있다.</p>
+<h2>래스터 데이터의 직관성</h2>
+<p>래스터 데이터는 사진처럼 모든 것을 격자 형태의 픽셀로 저장한다. 이는 각 픽셀에 값을 부여해 지도나 이미지를 표현하는 방식이다. 그래서 환경 변화를 분석하는 경우, 래스터는 매우 직관적이다. 예를 들어, 토지 피복 분석에서는 위성 사진의 픽셀들이 각각의 식생이나 건물 유형을 나타내는 데 유리하다. </p>
+<p>그러나 래스터 데이터는 크기 조정 시 선명도 손실이 발생할 수 있다. 해상도가 낮은 래스터 데이터를 확대하면 픽셀화 현상이 두드러진다. 그리고 데이터 용량이 커지기도 한다. 고해상도 이미지를 다루다 보면 저장 공간 부족 문제에 부딪힐 수도 있다. 이를 고려하여, 클라우드 스토리지나 데이터베이스 설계 단계에서 충분한 용량을 할당하는 것이 필요하다.</p>
+<h2>결정의 순간</h2>
+<p>어떤 데이터 형식을 선택할지 고민할 때는, 사용하는 데이터의 특성과 사용 목적을 따져봐야 한다. 만약 분석할 지역이 복잡한 경우, 벡터 데이터가 더 적합할 수 있다. 반대로 적시성이 필요한 환경 모니터링 작업에선 래스터 형식이 유리할 것이다. 결국, 기술적 요구사항에 맞춰 현명하게 선택해야 한다.</p>
+<p>결국, 어떤 형태를 택하든지는 필요에 따라 가변적이다. 모든 상황에 완벽한 데이터 모델은 존재하지 않으니, 현장에서의 필요에 맞춰 유연하게 대응하는 것이 최선이다. 현장 업무에서의 경험은, 정확성과 처리 효율성 사이의 균형점을 찾는 데 도움을 줄 것이다.</p></div>
+    <div class="labels"><span>#GIS</span><span>#공간 데이터</span><span>#벡터 데이터</span><span>#래스터 데이터</span><span>#GIS 분석</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
