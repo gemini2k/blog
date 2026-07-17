@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>계정과 권한 관리의 기본 원칙 · 빛의여행</title>
+<meta name="description" content="계정과 권한 관리를 위한 기본 원칙을 소개합니다. 최소 권한 부여와 역할 기반 접근 제어 등 실수 방지 전략을 확인하세요."/>
+<link rel="canonical" href="https://gemini2k.kr/basics-account-access-management.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="계정과 권한 관리의 기본 원칙"/>
+<meta property="og:description" content="계정과 권한 관리를 위한 기본 원칙을 소개합니다. 최소 권한 부여와 역할 기반 접근 제어 등 실수 방지 전략을 확인하세요."/>
+<meta property="og:url" content="https://gemini2k.kr/basics-account-access-management.html"/>
+<meta property="og:image" content="https://gemini2k.kr/assets/basics-account-access-management-64cc183425.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="계정과 권한 관리의 기본 원칙"/>
+<meta name="twitter:description" content="계정과 권한 관리를 위한 기본 원칙을 소개합니다. 최소 권한 부여와 역할 기반 접근 제어 등 실수 방지 전략을 확인하세요."/>
+<meta name="twitter:image" content="https://gemini2k.kr/assets/basics-account-access-management-64cc183425.webp"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">계정과 권한 관리의 기본 원칙</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 7월 18일</span></div>
+    <img class="post-hero" src="assets/basics-account-access-management-64cc183425.webp" alt="계정과 권한 관리의 기본 원칙"/>
+    <div class="post-body"><p>한 대기업의 IT 부서에서 일할 당시, 우리는 주말에 신입 직원들의 계정과 권한 설정 작업을 하느라 밤을 새야 했습니다. 새로운 시스템이 도입됐으나, 대비 없이 밀어붙이 듯 실행한 결과였죠. 명시된 권한이 없는 신입 직원에게 필요 이상으로 접근 권한이 부여되었고, 그로 인해 발생할 보안 문제는 아주 현실적인 위험이었습니다. 이런 경험을 바탕으로, 계정과 권한 관리(Identity and Access Management, IAM)를 제대로 구현하기 위한 기본 원칙을 공유하고자 합니다.</p>
+<h2>최소 권한 원칙</h2>
+<p>현장에서 자주 보게 되는 실수는 사용자에게 모든 권한을 "편의상" 부여하는 것입니다. 업무 초기에 모든 권한이 주어지면 속도는 낼 수 있지만, 잠재적 보안 위험도 커집니다. 따라서, 시스템 사용자에게 그들이 업무를 수행하는 데 꼭 필요한 최소한의 권한만을 부여하는 원칙이 중요합니다. 예를 들어, 일반 직원이 시스템 설정을 변경할 수 있는 관리자 권한을 가진다면 위험성이 큽니다. '필요할 때' 추가 권한을 적절히 부여하고, 다 쓴 뒤 제때 회수하는 절차를 마련하십시오.</p>
+<h2>역할 기반 접근 제어</h2>
+<p>역할 기반 접근 제어(Role-Based Access Control, RBAC)은 이 문제를 해결하는 효과적인 방법 중 하나입니다. 이는 유사한 직무를 수행하는 그룹별로 권한을 설정함으로써, 개별 설정의 노력을 줄이고 제어를 단순화합니다. 이를테면, 모든 회계 부서 직원이 공통된 계정 권한을 가지도록 하여 일관성을 유지할 수 있습니다. 자주 잊히지만 중요한 점은, RBAC 시스템을 주기적으로 재검토해야 한다는 것입니다. 새로운 직무가 생기거나 기존의 역할이 바뀌었을 때, 그저 과거 설정을 유지하는 것은 위험합니다.</p>
+<h2>정기적 검토와 감사</h2>
+<p>계정과 권한 설정이 한번으로 끝나는 작업은 절대 아닙니다. 내 경험상, 이를 주기적으로 검토하지 않아 장기적으로 쌓이는 실수나 권한을 제대로 파악하지 못하는 경우가 많습니다. 따라서, IAM 정책을 최소 반기마다 검토하고, 이상을 발견하면 투명하게 감사해야 합니다. 실제 케이스에서는, 한 고객사의 경우 시스템 감사 도중 불필요한 외부 컨설턴트 계정이 여전히 활성 상태로 남아 있는 걸 발견해 문제를 완화할 수 있었습니다.</p>
+<h2>교육과 인식 제고</h2>
+<p>아무리 철저한 시스템이 있어도 사용자들의 인식이 낮으면 문제가 생깁니다. 권한을 가진 사람들이 그 의미와 책임을 알지 못한다면 오남용이 발생할 수 있습니다. 따라서, IAM 시스템의 중요성과 기본 사용법에 대해 직원 교육을 정기적으로 실시해야 합니다. 주의를 기울여야 할 점은, 단순한 강의식 전달보다 간단한 실습이나 Q&amp;A 시간을 통해 더 깊이 있는 이해를 제공하는 것이 좋다는 것입니다.</p>
+<p>최종적으로, IAM은 기술적 문제를 넘어 조직의 문화와 업무 방식에 깊숙이 뿌리내려야 합니다. 중간에 접어들 때쯤에야 고치려는 시도는 리소스 낭비로 이어질 가능성이 큽니다. 지금 이 순간, 여러분의 시스템은 안녕하신가요? 현 상태를 재점검해 볼 때입니다.</p></div>
+    <div class="labels"><span>#보안</span><span>#계정 관리</span><span>#권한 관리</span><span>#IAM 원칙</span><span>#최소 권한</span><span>#역할 기반 접근</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
