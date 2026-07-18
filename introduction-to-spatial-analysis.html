@@ -1,0 +1,69 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>공간 분석 기초: 버퍼·중첩·근접 분석 · 빛의여행</title>
+<meta name="description" content="서울 외곽 개발 위기에서 버퍼, 중첩 등의 공간 분석으로 해결점을 찾습니다. 다양한 기법의 실무적 가치 탐구."/>
+<link rel="canonical" href="https://gemini2k.kr/introduction-to-spatial-analysis.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="공간 분석 기초: 버퍼·중첩·근접 분석"/>
+<meta property="og:description" content="서울 외곽 개발 위기에서 버퍼, 중첩 등의 공간 분석으로 해결점을 찾습니다. 다양한 기법의 실무적 가치 탐구."/>
+<meta property="og:url" content="https://gemini2k.kr/introduction-to-spatial-analysis.html"/>
+<meta property="og:image" content="https://gemini2k.kr/assets/introduction-to-spatial-analysis-3b9d89f578.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="공간 분석 기초: 버퍼·중첩·근접 분석"/>
+<meta name="twitter:description" content="서울 외곽 개발 위기에서 버퍼, 중첩 등의 공간 분석으로 해결점을 찾습니다. 다양한 기법의 실무적 가치 탐구."/>
+<meta name="twitter:image" content="https://gemini2k.kr/assets/introduction-to-spatial-analysis-3b9d89f578.webp"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">공간 분석 기초: 버퍼·중첩·근접 분석</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 7월 19일</span></div>
+    <img class="post-hero" src="assets/introduction-to-spatial-analysis-3b9d89f578.webp" alt="공간 분석 기초: 버퍼·중첩·근접 분석"/>
+    <div class="post-body"><p>작년 여름, 서울 외곽의 한 녹지 지역이 주택 개발로 인해 도심 녹지축이 단절될 위기에 처해 있었다. 이때 사용된 방법 중 하나가 바로 공간 분석이다. 특히, 버퍼(Buffer)와 중첩(Overlay) 분석이 중요한 역할을 했다. 이 글에서는 이러한 공간 분석 도구들이 실제 문제 해결에서 어떻게 활용되는지 살펴본다.</p>
+<h2>버퍼(Buffer) 분석의 활용</h2>
+<p>버퍼 분석은 쉽게 말해 특정 지점 또는 경계로부터 일정 거리만큼의 영역을 설정하는 기법이다. 서울 같은 대도시에서 주로 쓰이는 것은 도로 주변의 소음 영향 구간을 파악할 때다. 버스를 타고 다니다 보면, 어떤 구간에서는 유난히 조용하지 않을 때가 있는데, 이는 그 구간이 소음 버퍼 밖에 속해있기 때문이다. 50m, 100m, 200m 등의 기준 거리 설정은 폭넓게 응용된다. 하지만 현장에서 보면, 최적의 버퍼 거리를 정하는 것이 생각보다 어렵다. 이는 데이터의 해상도와 목적에 따라 달라지기 때문이다.</p>
+<h2>중첩(Overlay) 분석의 실무적 가치</h2>
+<p>중첩 분석은 여러 개의 공간 데이터 레이어를 겹쳐 새로운 통찰을 얻는 방법이다. 환경영향평가에서 개발 예정지의 지형도, 식생 분포도, 수질 보호구역 등을 중첩하여 종합적으로 분석한다. 한 예로, 개발 계획 중인 지역이 보호구역과 겹치는지를 확인할 수 있다. 현장에서 자주 놓치는 부분은 데이터 레이어의 호환성이다. 다양한 출처에서 온 데이터들은 정렬이나 좌표체계의 차이로 인해 오차가 생길 수 있다.</p>
+<h2>근접(Proximity) 분석의 응용</h2>
+<p>근접 분석은 대상이 서로 얼마나 가까운지를 측정하는 데 유용하다. 범죄예방을 위해 CCTV 위치를 최적화할 때 이 분석을 활용한다. 예를 들어, 범죄 빈발 지역으로부터 거리를 계산하여 가시성이 높은 곳에 CCTV를 배치한다. 그러나 이 접근법의 주의점은 과도한 거리를 설정하여 효과를 다소 과장할 수 있다는 점이다. 매번 주변 인프라에 대한 현장 조사를 병행해야만 한다.</p>
+<p>공간 분석을 통해 얻는 데이터는 단순 수치 이상이다. 지역 전체의 맥락을 파악하고, 그에 맞는 대안을 제시할 수 있게 해준다. 경험상, 분석 도구 자체보다 중요한 건 이 데이터를 제공하는 과정에서 협업하는 사람들과의 의사소통이다. 기술은 언제든 발전할 수 있지만, 사람과의 파트너십은 개발보다 더 긴 안목이 필요하니까.</p></div>
+    <div class="labels"><span>#GIS</span><span>#공간 분석</span><span>#버퍼 분석</span><span>#중첩 분석</span><span>#근접 분석</span><span>#환경영향평가</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
