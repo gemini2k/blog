@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>웹 지도 만들기: 입문자용 도구 비교 · 빛의여행</title>
+<meta name="description" content="웹 지도 제작을 위한 도구 QGIS, Leaflet, Google Maps, Mapbox를 비교하며 입문자에게 적합한 선택지를 제안합니다."/>
+<link rel="canonical" href="https://gemini2k.kr/web-mapping-tools-comparison-beginners.html"/>
+<meta name="google-site-verification" content="dP1lX4WQJ_p9BA2FLp0NJOC-HSh3YjbdrYMpSSLKvMI"/>
+<meta name="naver-site-verification" content="eb8cd06a529fb9f22f2db45b434fb83254f1c44d"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="빛의여행"/>
+<meta property="og:title" content="웹 지도 만들기: 입문자용 도구 비교"/>
+<meta property="og:description" content="웹 지도 제작을 위한 도구 QGIS, Leaflet, Google Maps, Mapbox를 비교하며 입문자에게 적합한 선택지를 제안합니다."/>
+<meta property="og:url" content="https://gemini2k.kr/web-mapping-tools-comparison-beginners.html"/>
+<meta property="og:image" content="https://gemini2k.kr/assets/web-mapping-tools-comparison-beginners-02690639e0.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="웹 지도 만들기: 입문자용 도구 비교"/>
+<meta name="twitter:description" content="웹 지도 제작을 위한 도구 QGIS, Leaflet, Google Maps, Mapbox를 비교하며 입문자에게 적합한 선택지를 제안합니다."/>
+<meta name="twitter:image" content="https://gemini2k.kr/assets/web-mapping-tools-comparison-beginners-02690639e0.webp"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W0ZXZT5ED"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6W0ZXZT5ED');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5930096672475061" crossorigin="anonymous"></script>
+<script>try{if(localStorage.getItem('lang')==='en')document.documentElement.className+=' lang-en';}catch(e){}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="index.html" class="navon"><span class="ko">전체</span><span class="en">All</span></a><a href="cat-news.html"><span class="ko">뉴스</span><span class="en">News</span></a><a href="cat-ai.html"><span class="ko">인공지능</span><span class="en">AI</span></a><a href="cat-data.html"><span class="ko">데이터분석</span><span class="en">Data</span></a><a href="cat-security.html"><span class="ko">보안</span><span class="en">Security</span></a><a href="cat-gis.html"><span class="ko">GIS</span><span class="en">GIS</span></a>
+    <a href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a href="https://gemini2k.co.kr" target="_blank" rel="noopener" class="navtool"><span class="ko">도구</span><span class="en">Tools</span></a>
+    <button class="langtoggle" type="button" onclick="toggleLang()" aria-label="language"><span class="ko">EN</span><span class="en">한국어</span></button>
+  </nav>
+</div></header>
+<div class="wrap">
+  <article class="post">
+    <h1 class="post-title">웹 지도 만들기: 입문자용 도구 비교</h1>
+    <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 7월 27일</span></div>
+    <img class="post-hero" src="assets/web-mapping-tools-comparison-beginners-02690639e0.webp" alt="웹 지도 만들기: 입문자용 도구 비교"/>
+    <div class="post-body"><p>"어떻게 저렇게 멋진 웹 지도를 만들 수 있을까?" 동료가 슬라이드를 넘기며 보여준 지역별 데이터 시각화 사례를 보고, 솔직히 좀 부러웠다. 수치와 통계만으로 표현했을 때보다 훨씬 직관적이었다. 구현해서 보고서를 내야 할 데드라인이 불과 며칠 앞이었다. 빠르게 시작할 수 있다는 도구들에 대한 정보부터 모아봤다.</p>
+<h2>QGIS와 Leaflet의 조합</h2>
+<p>처음 시작할 도구로는 QGIS와 Leaflet이 떠올랐다. QGIS는 GIS 소프트웨어 중 하나로, 무료 오픈소스로 제공되며 다양한 기능을 제공한다. 로컬 데이터를 온라인 지도로 전환하는 데 매우 유용하다. 실제로, 나 또한 이런 저런 분석을 시도하다 알게 된 여러 플러그인 기능 덕을 톡톡히 봤다. 예를 들어, 데이터를 적재해 다양한 지오메트리 타입으로 출력할 수 있는데, 이런 기능은 입문자에겐 꽤나 신세계였다.</p>
+<p>Leaflet은 자바스크립트 라이브러리로, 웹 기반 지도를 쉽게 만들 수 있도록 지원한다. QGIS에서 작업한 데이터를 Leaflet에 맞게 변환해 불러오면, 기본적인 인터렉티브 웹 지도를 생성할 수 있다. 유의할 점은, 이 두 도구를 결합해 사용하는데 처음엔 호환성 문제로 꽤나 시간을 소모했다는 것. 각기 다른 타입의 데이터를 사용하다 보니 예상치 못한 오류가 발생할 수도 있다. 하지만 익숙해지면 매우 탄탄한 조합이다.</p>
+<h2>Google Maps Platform: 친숙함 속의 한계</h2>
+<p>많은 사람들에게 Google Maps는 익숙한 존재다. Google Maps Platform은 그 친숙함을 그대로 웹 지도 제작에 이어간다. 특히 내가 담당했던 프로젝트에서 주소 검색 기능을 구현해야 했을 때, Google의 Geocoding API가 큰 도움을 줬다. 사용자가 많아서 관련 정보나 튜토리얼도 풍부하다는 장점이 있다.</p>
+<p>다만, Google Maps는 무료로 사용 가능한 쿼리 수에 제한이 있다. 일정 수준 이상을 넘어서면 유료 결제가 필요하다. 첫 시작은 쉬운데, 트래픽을 많이 소모하는 프로젝트라면 비용 문제가 생길 수 있어 신중해야 한다. 사실, 작은 규모 프로젝트에나 적합할 지 모른다.</p>
+<h2>Mapbox: 커스터마이징의 자유</h2>
+<p>Customization이 필요하다면 Mapbox를 고려해보길 추천한다. 이 도구는 다양한 스타일 맞춤 기능을 통해 전문성을 더해준다. 내 경험에 따르면, 시각적으로 매력적인 지도를 아주 세부적으로 조정할 수 있는 툴은 흔치 않다. 스타일라이즈한 지도를 제작할 때, 특히 고객 요청에 맞춰 브랜드 색상이나 레이아웃을 적용해야 할 때 유리하다.</p>
+<p>라이선스 비용이 있지만, 다른 서비스에 비해 제공하는 기능의 양과 질을 비교해 보면 충분히 고려해 볼 가치가 있다. 다만, 초기 설정이 복잡할 수 있다. 이 도구는 앞서 언급한 도구들보다는 학습 곡선이 급격할 수 있음을 염두에 두자.</p>
+<p>웹 지도 제작에 있어 중요한 건 도구의 선택 뿐 아니라, 목표와 상황에 맞는 정확한 전략 수립이라고 생각한다. 도구는 목적을 달성하기 위한 수단일 뿐이다. 중점을 어디에 두는지가 성공적인 결과물을 결정짓는다. 이 점을 기억해 두자.</p></div>
+    <div class="labels"><span>#GIS</span><span>#웹지도 만들기</span><span>#QGIS와 Leaflet</span><span>#Google Maps 활용</span><span>#Mapbox 커스터마이징</span></div>
+    <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
+  </article>
+</div>
+<footer class="ft"><div class="ft-in">
+  <a class="wordmark" href="index.html">빛의여행<span class="dot">.</span></a>
+  
+  <nav class="ftlinks" aria-label="other blogs">
+    <span class="ftlabel"><span class="ko">다른 블로그</span><span class="en">Elsewhere</span></span>
+    <a href="https://gemini2k.blog/" target="_blank" rel="noopener">WordPress</a><a href="https://gemini2k.blogspot.com/" target="_blank" rel="noopener">Blogger</a><a href="https://gemini2k.tistory.com/" target="_blank" rel="noopener">Tistory</a><a href="https://blog.naver.com/gemini2k" target="_blank" rel="noopener">Naver</a>
+  </nav>
+  
+  <div class="copy">© 빛의여행 — <span class="ko">기술과 데이터로 공공의 일상을 잇는 기록.</span><span class="en">Notes on tech and data for the public sector.</span> · <a href="privacy.html"><span class="ko">개인정보처리방침</span><span class="en">Privacy</span></a></div>
+</div></footer>
+<script>function toggleLang(){var en=document.documentElement.classList.toggle('lang-en');try{localStorage.setItem('lang',en?'en':'ko');}catch(e){}}</script>
+</body></html>
