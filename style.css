@@ -82,6 +82,8 @@ html:not(.lang-en) .en{display:none;}
 .tf-security{background:linear-gradient(140deg,#7a313d,#b35260);}
 .tf-privacy{background:linear-gradient(140deg,#6b4a1f,#a8752f);}
 .tf-gis{background:linear-gradient(140deg,#235a7b,#3690bd);}
+.tf-audit{background:linear-gradient(140deg,#3d4a5c,#5f7590);}
+.tf-cert{background:linear-gradient(140deg,#5a2f63,#8c4f99);}
 .tf-generic{background:linear-gradient(140deg,#2B2F3A,#454B5C);}
 .cat{position:absolute;left:.8rem;top:.8rem;background:rgba(255,255,255,.92);color:var(--ink);
   font-size:.72rem;font-weight:700;padding:.26rem .6rem;border-radius:999px;}
