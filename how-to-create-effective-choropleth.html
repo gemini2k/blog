@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="alternate" type="application/rss+xml" title="빛의여행" href="feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"단계구분도(Choropleth) 잘 만드는 법","description":"단계구분도를 활용해 대기질을 효과적으로 시각화하는 방법과 주의점을 소개합니다.","datePublished":"2026-07-31T07:00:54+09:00","dateModified":"2026-11-11T21:35:37+09:00","author":{"@type":"Person","name":"GEMINI2K","url":"https://gemini2k.kr/about.html"},"publisher":{"@type":"Organization","name":"빛의여행","url":"https://gemini2k.kr/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gemini2k.kr/how-to-create-effective-choropleth.html"},"inLanguage":"ko-KR","image":["https://gemini2k.kr/assets/how-to-create-effective-choropleth-c5e75d49d9.webp"],"keywords":"GIS, 단계구분도, 데이터 시각화, 색상 선택, 구간 설정, 대기질 분석"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"빛의여행","item":"https://gemini2k.kr/"},{"@type":"ListItem","position":2,"name":"GIS","item":"https://gemini2k.kr/cat-gis.html"},{"@type":"ListItem","position":3,"name":"단계구분도(Choropleth) 잘 만드는 법","item":"https://gemini2k.kr/how-to-create-effective-choropleth.html"}]}]}</script>
 </head>
 <body>
 <header class="hdr"><div class="hdr-in">
@@ -46,9 +48,9 @@
     <img class="post-hero" src="assets/how-to-create-effective-choropleth-c5e75d49d9.webp" alt="단계구분도(Choropleth) 잘 만드는 법"/>
     <div class="post-body"><p>깊은 공기를 들이마시고, 서울의 미세먼지 농도를 시각화해야 하는 상황을 떠올려 보자. 지역별 대기질 데이터를 단계구분도를 사용해 보여주기로 했다. 일반적인 방법은 데이터를 특정 구간으로 나누고 각 구간에 색을 지정하는 것이다. 하지만 그 데이터가 서울 안의 다양한 지역별로 퍼져 있을 때, 단계구분도는 제대로 정보를 전달할 준비가 되어 있는가?</p>
 <h2>색상 선정과 의미 전달</h2>
-<p>단계구분도를 만들 때 가장 먼저 고려해야 할 점은 색상이다. 흔히들 빨간색에서 파란색으로 이어지는 색상 그라데이션을 선택하는데, 실제 현장에서 보면 이런 선택을 자주 보게 된다. 그러나 색은 반드시 의미를 전달할 수 있어야 한다. 예를 들어, 대기질이라면 녹색은 좋은 상태를, 붉은색은 나쁜 상태를 나타내도록 설정해야 한다. 색맹을 고려해 색상을 선택하는 것도 잊지 말아야 한다. 예를 들어, 파란색과 녹색의 구별이 어렵다면 주색과 노란색 같은 색을 사용하는 방안도 고민할 수 있다.</p>
+<p>단계구분도를 만들 때 가장 먼저 고려해야 할 점은 색상이다. 흔히들 빨간색에서 파란색으로 이어지는 색상 그라데이션을 선택하는데, 실제 현장에서 보면 이런 선택을 자주 보게 된다. 그러나 색은 반드시 의미를 전달할 수 있어야 한다. 예를 들어, 대기질이라면 녹색은 좋은 상태를, 붉은색은 나쁜 상태를 나타내도록 설정해야 한다. 색맹을 고려해 색상을 선택하는 것도 잊지 말아야 한다. 특히 가장 흔한 적록 색각이상을 고려하면 빨강·녹색 대비에만 의존하기보다 명도 차이가 분명한 색 단계나 파랑–주황 계열을 쓰는 방안도 고민할 수 있다.</p>
 <h2>구간 설정의 중요성</h2>
-<p>구간을 어떻게 나누느냐는 단계구분도의 정보 전달력을 크게 좌우한다. 경험상 많은 보고서에서는 작위적인 다섯 구간을 만들어 사용해왔지만, 이는 데이터의 본질을 흐리게끔 만들기도 한다. 실제 구간 설정은 데이터 분포를 고려해야 한다. 평균은 물론이고, 상하위 25% 범위에서 값을 구간화하면 보다 현실적인 정보를 제공할 수 있다. 이를 위해 '자연 구간 분류'와 같은 알고리즘을 활용하는 것도 방법이다.</p>
+<p>구간을 어떻게 나누느냐는 단계구분도의 정보 전달력을 크게 좌우한다. 경험상 많은 보고서에서는 작위적인 다섯 구간을 만들어 사용해왔지만, 이는 데이터의 본질을 흐리게끔 만들기도 한다. 실제 구간 설정은 데이터 분포를 고려해야 한다. 데이터 분포에 따라 분위수(Quantile) 분류나 '자연 구간 분류(Jenks)' 같은 방법을 골라 쓰면 보다 현실적인 정보를 제공할 수 있다.</p>
 <h2>데이터의 맥락 이해하기</h2>
 <p>단순히 단계구분도를 만드는 것으로는 충분하지 않다. 중요한 것은 그 데이터가 실제 세계에 어떻게 적용되는지 이해하는 것이다. 서울의 대기질 정보라면, 특정 날짜의 날씨나 차량 이슈와 연관지어 이해해야 한다. 데이터의 맥락을 잘 파악하고 전달하지 않으면, 아무리 뛰어난 시각화라도 잘못된 인식을 만들 수 있다.</p>
 <h2>도구 활용과 한계</h2>
@@ -58,6 +60,12 @@
 <hr/>
 <p class="ai-disclosure" style="font-size:0.9em;color:#6b7280;margin-top:1.5em">ℹ️ 이 글은 생성형 AI로 작성되었습니다. 대표 이미지도 AI로 생성했습니다. 법령·수치·일정 등은 관계 기관의 원문(법령, 고시, 보도자료)으로 확인하시기 바랍니다.</p></div>
     <div class="labels"><span>#GIS</span><span>#단계구분도</span><span>#데이터 시각화</span><span>#색상 선택</span><span>#구간 설정</span><span>#대기질 분석</span></div>
+    
+    <section class="related" aria-label="related posts">
+      <h2><span class="ko">함께 읽으면 좋은 글</span><span class="en">Related posts</span></h2>
+      <ul><li><a href="web-mapping-tools-comparison-beginners.html"><span class="rcat">GIS</span><span class="rtitle">웹 지도 만들기: 입문자용 도구 비교</span></a></li><li><a href="open-spatial-data-sources-for-urban-planning.html"><span class="rcat">GIS</span><span class="rtitle">오픈 공간데이터, 어디서 받을 수 있나</span></a></li><li><a href="introduction-to-spatial-analysis.html"><span class="rcat">GIS</span><span class="rtitle">공간 분석 기초: 버퍼·중첩·근접 분석</span></a></li></ul>
+    </section>
+    
     <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>

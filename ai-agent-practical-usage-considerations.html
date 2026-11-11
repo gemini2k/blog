@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="alternate" type="application/rss+xml" title="빛의여행" href="feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"AI 에이전트(Agent): 실무에서의 활용과 고려사항","description":"AI 에이전트는 실무에서 반복 작업을 자동화하며, 데이터 품질과 사용자 인터페이스에 주의해야 합니다.","datePublished":"2026-07-16T07:00:56+09:00","dateModified":"2026-11-11T21:35:37+09:00","author":{"@type":"Person","name":"GEMINI2K","url":"https://gemini2k.kr/about.html"},"publisher":{"@type":"Organization","name":"빛의여행","url":"https://gemini2k.kr/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gemini2k.kr/ai-agent-practical-usage-considerations.html"},"inLanguage":"ko-KR","image":["https://gemini2k.kr/assets/ai-agent-practical-usage-considerations-b3d8c8f3c2.webp"],"keywords":"인공지능, AI 에이전트, 데이터 자동화, 업무 효율화, 기술 선택"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"빛의여행","item":"https://gemini2k.kr/"},{"@type":"ListItem","position":2,"name":"인공지능","item":"https://gemini2k.kr/cat-ai.html"},{"@type":"ListItem","position":3,"name":"AI 에이전트(Agent): 실무에서의 활용과 고려사항","item":"https://gemini2k.kr/ai-agent-practical-usage-considerations.html"}]}]}</script>
 </head>
 <body>
 <header class="hdr"><div class="hdr-in">
@@ -51,13 +53,19 @@
 <p>실제로 AI 에이전트는 다양한 분야에서 사용되고 있다. 예를 들어, IT 자산을 관리하는 회사에서는 장비 상태 모니터링과 성능 분석을 통해 유지보수를 최적화한다. 이 과정에서 AI 에이전트는 실시간 데이터를 분석해 장비의 고장을 예측하고, 이를 통해 비용을 절감한다. 또 다른 예로, 금융권에서는 고객의 거래 패턴을 AI 에이전트를 통해 분석해 이상 거래를 조기에 탐지하고 있다. 이런 사례들은 AI 에이전트가 절차적 작업을 얼마나 효율적으로 수행하는지 보여준다.</p>
 <p>하지만 실무에서는 두 가지 점을 특히 신경 써야 한다. 첫째, 데이터 품질이다. 에이전트는 주어진 데이터를 기반으로 작동하므로, 데이터의 오류나 편향이 큰 문제가 될 수 있다. 둘째, AI 에이전트와의 상호작용 방식이다. 사용자 인터페이스(UI)가 불편하면 에이전트의 가치가 반감된다.</p>
 <h2>도구와 기술의 선택</h2>
-<p>AI 에이전트를 선택할 때는 구체적인 비즈니스 요구조건과 맞는 기술을 채택해야 한다. 대형 플랫폼에서는 구글 AI Platform, IBM Watson 같은 옵션이 있지만, 그보다는 특정 업무에 맞춤화된 소규모 솔루션이 유리할 때도 있다. 이런 솔루션은 빠르게 도입 가능하면서도 사용자 친화적이며, 초기 비용이 상대적으로 낮다. </p>
+<p>AI 에이전트를 선택할 때는 구체적인 비즈니스 요구조건과 맞는 기술을 채택해야 한다. 대형 플랫폼에서는 구글 Vertex AI, IBM watsonx 같은 옵션이 있지만, 그보다는 특정 업무에 맞춤화된 소규모 솔루션이 유리할 때도 있다. 이런 솔루션은 빠르게 도입 가능하면서도 사용자 친화적이며, 초기 비용이 상대적으로 낮다. </p>
 <p>다만, 너무 최신 기술을 무작정 따라가선 안 된다. 신기술의 장점은 분명하지만, 조직의 전반적인 IT 수준이나 사용자의 기술 숙련도를 고려하지 않으면 오히려 장애물이 될 수 있다.</p>
-<p>업무 디지털 전환 가속화를 위한 다양한 도구들이 존재하지만, 선택의 순간에서는 항상 '우리 조직의 준비 상태는 어떤가?'를 먼저 반문해 보는 것이 필수다.렬이 여전히 중요하다. AI 에이전트가 바로 해결책은 아니지만, 제대로 준비된 상태에서 도입한다면 큰 차이를 만들 수 있다. 활용하고자 하는 목표와 현실을 맞추는 것이 성공의 원동력이다.</p>
+<p>업무 디지털 전환 가속화를 위한 다양한 도구들이 존재하지만, 선택의 순간에서는 항상 '우리 조직의 준비 상태는 어떤가?'를 먼저 반문해 보는 것이 먼저다. 기술보다 목표와 조직 역량의 정렬이 여전히 중요하다. AI 에이전트가 바로 해결책은 아니지만, 제대로 준비된 상태에서 도입한다면 큰 차이를 만들 수 있다. 활용하고자 하는 목표와 현실을 맞추는 것이 성공의 원동력이다.</p>
 
 <hr/>
 <p class="ai-disclosure" style="font-size:0.9em;color:#6b7280;margin-top:1.5em">ℹ️ 이 글은 생성형 AI로 작성되었습니다. 대표 이미지도 AI로 생성했습니다. 법령·수치·일정 등은 관계 기관의 원문(법령, 고시, 보도자료)으로 확인하시기 바랍니다.</p></div>
     <div class="labels"><span>#인공지능</span><span>#AI 에이전트</span><span>#데이터 자동화</span><span>#업무 효율화</span><span>#기술 선택</span></div>
+    
+    <section class="related" aria-label="related posts">
+      <h2><span class="ko">함께 읽으면 좋은 글</span><span class="en">Related posts</span></h2>
+      <ul><li><a href="understanding-and-reducing-llm-hallucination.html"><span class="rcat">인공지능</span><span class="rtitle">LLM 환각(Hallucination) 이해하고 줄이는 법</span></a></li><li><a href="ai-ethics-responsible-practice-basics-for-practitioners.html"><span class="rcat">인공지능</span><span class="rtitle">AI 윤리와 책임 있는 활용: 실무자가 알아야 할 기본</span></a></li><li><a href="rag-retrieval-augmented-generation.html"><span class="rcat">인공지능</span><span class="rtitle">RAG(검색증강생성)란? 우리 문서와 AI 연결하기</span></a></li></ul>
+    </section>
+    
     <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>

@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="alternate" type="application/rss+xml" title="빛의여행" href="feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"좌표계와 투영, 5분 만에 이해하기","description":"좌표계와 투영은 GIS에서 지구 데이터를 화면에 정확히 표현하기 위한 핵심 요소입니다.","datePublished":"2026-06-29T07:00:52+09:00","dateModified":"2026-11-11T21:35:37+09:00","author":{"@type":"Person","name":"GEMINI2K","url":"https://gemini2k.kr/about.html"},"publisher":{"@type":"Organization","name":"빛의여행","url":"https://gemini2k.kr/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gemini2k.kr/understanding-coordinate-systems-and-projections.html"},"inLanguage":"ko-KR","image":["https://gemini2k.kr/assets/understanding-coordinate-systems-and-pro-b028ea9a35.webp"],"keywords":"GIS, 지리정보시스템, 좌표계, 투영 방법, 맵핑 기술"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"빛의여행","item":"https://gemini2k.kr/"},{"@type":"ListItem","position":2,"name":"GIS","item":"https://gemini2k.kr/cat-gis.html"},{"@type":"ListItem","position":3,"name":"좌표계와 투영, 5분 만에 이해하기","item":"https://gemini2k.kr/understanding-coordinate-systems-and-projections.html"}]}]}</script>
 </head>
 <body>
 <header class="hdr"><div class="hdr-in">
@@ -50,13 +52,19 @@
 <h2>투영의 선택: 평면에서의 표현</h2>
 <p>투영은 구형의 지구를 평면에 표시하기 위한 수학적 변환이다. 지구의 표면을 평면으로 펼치는 여러 가지 방식이 있는데, 그 중 가장 널리 사용되는 것은 Mercator 투영이다. Mercator 투영은 특히 방향이 정확하게 유지된다는 장점이 있어 항해에 유리하다. 하지만 넓이 왜곡은 피할 수 없다. 예를 들어, 극지방은 실제보다 훨씬 크게 보이게 된다. 이 때문에 세계지도를 볼 때는 사용 목적에 맞는 투영 방식을 선택하는 것이 중요하다. 지역적 분석이 목표라면, Lambert Conformal Conic과 같은 다른 투영도 적합할 수 있다.</p>
 <h2>실무에서의 판단: 이론과 현실 사이</h2>
-<p>실무에서는 이론적 이해에 못지않게 주변 조건과 필요한 데이터를 잘 파악해야 한다. 내 경험에 따르면, 여러 데이터 출처가 혼재된 프로젝트의 경우에는 일관된 좌표계를 사용하는 것이 중요하다. 데이터가 서로 다른 좌표계를 사용할 경우, 불필요한 변환과 이로 인한 오차가 발생하기 때문이다. QGIS나 ArcGIS와 같은 도구를 활용하면 다양한 좌표계를 다룰 수 있어 유용하다. 하지만, 중복된 데이터 변환 과정은 프로젝트의 복잡성을 야기할 수 있으니, 처음부터 명확한 좌표계를 설정하는 것이 좋다.</p>
+<p>실무에서는 이론적 이해에 못지않게 주변 조건과 필요한 데이터를 잘 파악해야 한다. 특히 여러 데이터 출처가 혼재된 프로젝트의 경우에는 일관된 좌표계를 사용하는 것이 중요하다. 데이터가 서로 다른 좌표계를 사용할 경우, 불필요한 변환과 이로 인한 오차가 발생하기 때문이다. QGIS나 ArcGIS와 같은 도구를 활용하면 다양한 좌표계를 다룰 수 있어 유용하다. 하지만, 중복된 데이터 변환 과정은 프로젝트의 복잡성을 야기할 수 있으니, 처음부터 명확한 좌표계를 설정하는 것이 좋다.</p>
 <p>투영을 할 때 역시 목표에 맞는 선택이 중요하다. 목표로 하는 분석의 공간적 범위를 고려하여 적절한 투영을 선택하면, 지도 표현 뿐만 아니라 분석의 정확도를 높일 수 있다.</p>
 <p>한 가지 팁을 말하자면, GIS에서는 '적합한 도구'의 선택보다 중요한 것이 정확한 목표 설정과 데이터 이해다. 기술적 접근보다 기획 단계에서의 명확함이 훨씬 더 큰 효과를 낼 수 있다. 좌표계와 투영 선택에서도 마찬가지다. 초점은 항상 데이터의 본질을 잃지 않는 것에 맞춰져야 한다.</p>
 
 <hr/>
 <p class="ai-disclosure" style="font-size:0.9em;color:#6b7280;margin-top:1.5em">ℹ️ 이 글은 생성형 AI로 작성되었습니다. 대표 이미지도 AI로 생성했습니다. 법령·수치·일정 등은 관계 기관의 원문(법령, 고시, 보도자료)으로 확인하시기 바랍니다.</p></div>
     <div class="labels"><span>#GIS</span><span>#지리정보시스템</span><span>#좌표계</span><span>#투영 방법</span><span>#맵핑 기술</span></div>
+    
+    <section class="related" aria-label="related posts">
+      <h2><span class="ko">함께 읽으면 좋은 글</span><span class="en">Related posts</span></h2>
+      <ul><li><a href="gis-in-administration.html"><span class="rcat">GIS</span><span class="rtitle">지도 위에서 보이는 것 — 공간정보가 행정에서 하는 일</span></a></li><li><a href="what-is-gis-data-world-map.html"><span class="rcat">GIS</span><span class="rtitle">GIS란 무엇인가: 지도 위의 데이터 세계</span></a></li><li><a href="qgis-free-gis-for-beginners.html"><span class="rcat">GIS</span><span class="rtitle">QGIS로 시작하는 무료 GIS 첫걸음</span></a></li></ul>
+    </section>
+    
     <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>

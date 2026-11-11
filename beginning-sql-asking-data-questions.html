@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="alternate" type="application/rss+xml" title="빛의여행" href="feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"SQL 첫걸음: 데이터에게 질문하는 법","description":"SQL을 통해 데이터와 소통하는 방법을 배워보세요. 효율적인 쿼리 작성과 데이터베이스 설계의 핵심을 다룹니다.","datePublished":"2026-07-21T07:00:54+09:00","dateModified":"2026-11-11T21:35:37+09:00","author":{"@type":"Person","name":"GEMINI2K","url":"https://gemini2k.kr/about.html"},"publisher":{"@type":"Organization","name":"빛의여행","url":"https://gemini2k.kr/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gemini2k.kr/beginning-sql-asking-data-questions.html"},"inLanguage":"ko-KR","image":["https://gemini2k.kr/assets/beginning-sql-asking-data-questions-71e569582c.webp"],"keywords":"데이터분석, SQL 기본, 데이터베이스 쿼리, 데이터 정규화, 실행계획"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"빛의여행","item":"https://gemini2k.kr/"},{"@type":"ListItem","position":2,"name":"데이터분석","item":"https://gemini2k.kr/cat-data.html"},{"@type":"ListItem","position":3,"name":"SQL 첫걸음: 데이터에게 질문하는 법","item":"https://gemini2k.kr/beginning-sql-asking-data-questions.html"}]}]}</script>
 </head>
 <body>
 <header class="hdr"><div class="hdr-in">
@@ -46,7 +48,7 @@
     <img class="post-hero" src="assets/beginning-sql-asking-data-questions-71e569582c.webp" alt="SQL 첫걸음: 데이터에게 질문하는 법"/>
     <div class="post-body"><p>월요일 아침, 업무 시작 전 받은 이메일 한 통이 시급한 업무를 제기합니다. "지난 분기 동안 가장 많이 판매된 상품은 무엇인가요?" 매번 반복되는 이런 질문, 여러분은 어떻게 처리하시나요? 정답은 SQL입니다. SQL은 Structured Query Language의 약자로, 우리가 데이터베이스에게 원하는 데이터를 쉽고 빠르게 요청할 수 있도록 돕습니다. 이번 글에서는 SQL을 사용해 데이터와 소통하는 방법을 이야기해보려 합니다.</p>
 <h2>왜 SQL인가?</h2>
-<p>많은 데이터베이스가 NoSQL 방향으로 향하고 있는 지금, SQL의 필요성을 종종 의심할 수 있습니다. 그러나 내 경험에 따르면, 특히 기존 시스템이 잘 운영되고 있는 회사에서는 SQL의 중요성이 대단합니다. SQL은 표준화된 언어로, 대부분의 관계형 데이터베이스에서 지원됩니다. 게다가, SELECT 문 하나면 간단한 통계 데이터를 가져올 수 있습니다. 예를 들어, 특정 테이블에서 가장 많이 판매된 제품을 SQL로 다음과 같이 쉽게 구할 수 있습니다:</p>
+<p>많은 데이터베이스가 NoSQL 방향으로 향하고 있는 지금, SQL의 필요성을 종종 의심할 수 있습니다. 그러나 특히 기존 시스템이 잘 운영되고 있는 회사에서는 SQL의 중요성이 대단합니다. SQL은 표준화된 언어로, 대부분의 관계형 데이터베이스에서 지원됩니다. 게다가, SELECT 문 하나면 간단한 통계 데이터를 가져올 수 있습니다. 예를 들어, 특정 테이블에서 가장 많이 판매된 제품을 SQL로 다음과 같이 쉽게 구할 수 있습니다:</p>
 <pre><code class="language-sql">SELECT product_name, SUM(sales) as total_sales
 FROM sales_table
 GROUP BY product_name
@@ -64,6 +66,12 @@ LIMIT 1;
 <hr/>
 <p class="ai-disclosure" style="font-size:0.9em;color:#6b7280;margin-top:1.5em">ℹ️ 이 글은 생성형 AI로 작성되었습니다. 대표 이미지도 AI로 생성했습니다. 법령·수치·일정 등은 관계 기관의 원문(법령, 고시, 보도자료)으로 확인하시기 바랍니다.</p></div>
     <div class="labels"><span>#데이터분석</span><span>#SQL 기본</span><span>#데이터베이스 쿼리</span><span>#데이터 정규화</span><span>#실행계획</span></div>
+    
+    <section class="related" aria-label="related posts">
+      <h2><span class="ko">함께 읽으면 좋은 글</span><span class="en">Related posts</span></h2>
+      <ul><li><a href="basic-statistics-mean-median-variance.html"><span class="rcat">데이터분석</span><span class="rtitle">기초 통계 개념: 평균·중앙값·분산 쉽게 이해하기</span></a></li><li><a href="data-quality-management-trustworthy-analysis.html"><span class="rcat">데이터분석</span><span class="rtitle">데이터 품질 관리: 신뢰할 수 있는 분석의 출발점</span></a></li><li><a href="key-elements-of-effective-dashboards.html"><span class="rcat">데이터분석</span><span class="rtitle">한눈에 읽히는 대시보드의 조건</span></a></li></ul>
+    </section>
+    
     <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>

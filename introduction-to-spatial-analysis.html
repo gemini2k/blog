@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="alternate" type="application/rss+xml" title="빛의여행" href="feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"공간 분석 기초: 버퍼·중첩·근접 분석","description":"서울 외곽 개발 위기에서 버퍼, 중첩 등의 공간 분석으로 해결점을 찾습니다. 다양한 기법의 실무적 가치 탐구.","datePublished":"2026-07-19T07:00:52+09:00","dateModified":"2026-11-11T21:35:37+09:00","author":{"@type":"Person","name":"GEMINI2K","url":"https://gemini2k.kr/about.html"},"publisher":{"@type":"Organization","name":"빛의여행","url":"https://gemini2k.kr/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gemini2k.kr/introduction-to-spatial-analysis.html"},"inLanguage":"ko-KR","image":["https://gemini2k.kr/assets/introduction-to-spatial-analysis-3b9d89f578.webp"],"keywords":"GIS, 공간 분석, 버퍼 분석, 중첩 분석, 근접 분석, 환경영향평가"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"빛의여행","item":"https://gemini2k.kr/"},{"@type":"ListItem","position":2,"name":"GIS","item":"https://gemini2k.kr/cat-gis.html"},{"@type":"ListItem","position":3,"name":"공간 분석 기초: 버퍼·중첩·근접 분석","item":"https://gemini2k.kr/introduction-to-spatial-analysis.html"}]}]}</script>
 </head>
 <body>
 <header class="hdr"><div class="hdr-in">
@@ -44,9 +46,9 @@
     <h1 class="post-title">공간 분석 기초: 버퍼·중첩·근접 분석</h1>
     <div class="post-meta"><span class="author">GEMINI2K</span><span>·</span><span>2026년 7월 19일</span></div>
     <img class="post-hero" src="assets/introduction-to-spatial-analysis-3b9d89f578.webp" alt="공간 분석 기초: 버퍼·중첩·근접 분석"/>
-    <div class="post-body"><p>작년 여름, 서울 외곽의 한 녹지 지역이 주택 개발로 인해 도심 녹지축이 단절될 위기에 처해 있었다. 이때 사용된 방법 중 하나가 바로 공간 분석이다. 특히, 버퍼(Buffer)와 중첩(Overlay) 분석이 중요한 역할을 했다. 이 글에서는 이러한 공간 분석 도구들이 실제 문제 해결에서 어떻게 활용되는지 살펴본다.</p>
+    <div class="post-body"><p>작년 여름, 서울 외곽의 한 녹지 지역이 주택 개발로 인해 도심 녹지축이 단절될 위기에 처해 있었다. 이때 사용된 방법 중 하나가 바로 공간 분석이다. 특히, 버퍼(Buffer)와 중첩(Overlay) 분석이 중요한 역할을 했다. 이러한 공간 분석 도구들이 실제 문제 해결에서 어떻게 활용되는지 살펴본다.</p>
 <h2>버퍼(Buffer) 분석의 활용</h2>
-<p>버퍼 분석은 쉽게 말해 특정 지점 또는 경계로부터 일정 거리만큼의 영역을 설정하는 기법이다. 서울 같은 대도시에서 주로 쓰이는 것은 도로 주변의 소음 영향 구간을 파악할 때다. 버스를 타고 다니다 보면, 어떤 구간에서는 유난히 조용하지 않을 때가 있는데, 이는 그 구간이 소음 버퍼 밖에 속해있기 때문이다. 50m, 100m, 200m 등의 기준 거리 설정은 폭넓게 응용된다. 하지만 현장에서 보면, 최적의 버퍼 거리를 정하는 것이 생각보다 어렵다. 이는 데이터의 해상도와 목적에 따라 달라지기 때문이다.</p>
+<p>버퍼 분석은 쉽게 말해 특정 지점 또는 경계로부터 일정 거리만큼의 영역을 설정하는 기법이다. 서울 같은 대도시에서 주로 쓰이는 것은 도로 주변의 소음 영향 구간을 파악할 때다. 버스를 타고 다니다 보면 유난히 시끄러운 구간이 있는데, 버퍼 분석은 이런 구간처럼 도로에서 일정 거리 안에 드는 소음 영향권을 찾아내는 데 쓰인다. 50m, 100m, 200m 등의 기준 거리 설정은 폭넓게 응용된다. 하지만 현장에서 보면, 최적의 버퍼 거리를 정하는 것이 생각보다 어렵다. 이는 데이터의 해상도와 목적에 따라 달라지기 때문이다.</p>
 <h2>중첩(Overlay) 분석의 실무적 가치</h2>
 <p>중첩 분석은 여러 개의 공간 데이터 레이어를 겹쳐 새로운 통찰을 얻는 방법이다. 환경영향평가에서 개발 예정지의 지형도, 식생 분포도, 수질 보호구역 등을 중첩하여 종합적으로 분석한다. 한 예로, 개발 계획 중인 지역이 보호구역과 겹치는지를 확인할 수 있다. 현장에서 자주 놓치는 부분은 데이터 레이어의 호환성이다. 다양한 출처에서 온 데이터들은 정렬이나 좌표체계의 차이로 인해 오차가 생길 수 있다.</p>
 <h2>근접(Proximity) 분석의 응용</h2>
@@ -56,6 +58,12 @@
 <hr/>
 <p class="ai-disclosure" style="font-size:0.9em;color:#6b7280;margin-top:1.5em">ℹ️ 이 글은 생성형 AI로 작성되었습니다. 대표 이미지도 AI로 생성했습니다. 법령·수치·일정 등은 관계 기관의 원문(법령, 고시, 보도자료)으로 확인하시기 바랍니다.</p></div>
     <div class="labels"><span>#GIS</span><span>#공간 분석</span><span>#버퍼 분석</span><span>#중첩 분석</span><span>#근접 분석</span><span>#환경영향평가</span></div>
+    
+    <section class="related" aria-label="related posts">
+      <h2><span class="ko">함께 읽으면 좋은 글</span><span class="en">Related posts</span></h2>
+      <ul><li><a href="geocoding-address-coordinate-conversion.html"><span class="rcat">GIS</span><span class="rtitle">지오코딩: 주소를 좌표로 바꾸는 기술</span></a></li><li><a href="vector-and-raster-forms-of-spatial-data.html"><span class="rcat">GIS</span><span class="rtitle">벡터와 래스터, 공간 데이터의 두 가지 형태</span></a></li><li><a href="gis-use-cases-in-public-administration.html"><span class="rcat">GIS</span><span class="rtitle">GIS를 활용한 행정 업무의 실제 사례들</span></a></li></ul>
+    </section>
+    
     <a class="backhome" href="index.html"><span class="ko">← 전체 글 보기</span><span class="en">← All posts</span></a>
   </article>
 </div>
